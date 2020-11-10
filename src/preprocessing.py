@@ -33,14 +33,14 @@ def worker(consp_tuple):
     cursor = client[conspiracy][hashtag].find({})
     for i, document in enumerate(cursor):
         try:
-            inputs = tokenizer(p.clean(document['text']), return_tensors="tf")
+            inputs = tokenizer(p.clean(document['text']) + ' [SEP]', return_tensors="tf")
             inputs.update({'tweetId' : document['tweetId']})
             data.append(inputs)
         except Exception as e:
             pass
 
 
-        if (i > 100):
+        if (i > 10000):
             break
 
     with open(data_dir + '/' + conspiracy + '-' + hashtag + '.p', 'wb') as f:

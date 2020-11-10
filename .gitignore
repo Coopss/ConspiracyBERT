@@ -21,6 +21,7 @@ __pycache__/*
 .settings
 .idea
 tags
+config/*
 
 # Package files
 *.egg
@@ -45,6 +46,11 @@ docs/_rst/*
 docs/_build/*
 cover/*
 MANIFEST
+data/*
+src/data/*
+scripts/data/*
+scripts/model/*
+config
 
 # Per-project virtualenvs
 .venv*/
